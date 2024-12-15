@@ -7,8 +7,11 @@ class MyApp extends StatelessWidget {
   //static const String _title = 'Flutter Stateful Clicker Counter';
   // This widget is the root of your application.
   @override
+  
   Widget build(BuildContext context) {
+  
     return MaterialApp(
+    
       title: 'Flutter demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
