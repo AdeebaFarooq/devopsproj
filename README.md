@@ -31,79 +31,58 @@ form program
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
-  
   Widget build(BuildContext context) {
-  
     return MaterialApp(
+      title: 'Flutter Demo', // Title as String
       home: Scaffold(
-        appBar: AppBar(title: Text('Simple Form')),
-        body: MyForm(),
+        appBar: AppBar(title: const Text('Flutter Form')),
+        body: const MyCustForm(),
       ),
     );
   }
 }
 
-class MyForm extends StatefulWidget {
+class MyCustForm extends StatefulWidget {
+  const MyCustForm({super.key});
+
   @override
-  _MyFormState createState() => _MyFormState();
+  MyCustState createState() => MyCustState();
 }
 
-class _MyFormState extends State<MyForm> {
+class MyCustState extends State<MyCustForm> {
   final _formKey = GlobalKey<FormState>();
-  String _message = '';
 
   @override
   Widget build(BuildContext context) {
-  
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Form(
+      key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Name'),
-                  validator: (value) =>
-                      value!.isEmpty ? 'Please enter your name' : null,
-                ),
-                SizedBox(height: 16),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Email'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    if (!value.contains('@')) {
-                      return 'Please enter a valid email';
-                    }
-                    return null;
-                  },
-                ),
-              ],
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'Enter your name',
+              icon: Icon(Icons.person),
             ),
           ),
-          SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                setState(() {
-                  _message = 'Form Submitted Successfully!';
-                });
-              }
-            },
-            child: Text('Submit'),
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'Enter your email',
+              icon: Icon(Icons.email), // Corrected Icon widget
+            ),
           ),
-          SizedBox(height: 16),
-          Text(
-            _message,
-            style: TextStyle(fontSize: 16, color: Colors.green),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              child: const Text('Submit'),
+              onPressed: null,
+            ),
           ),
         ],
       ),
