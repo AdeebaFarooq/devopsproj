@@ -1,42 +1,30 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  //static const String _title = 'Flutter Stateful Clicker Counter';
+
   // This widget is the root of your application.
   @override
-  
   Widget build(BuildContext context) {
-  
     return MaterialApp(
-    
-      title: 'Flutter demo',
+      title: 'Flutter App!!',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          // useMaterial3: false,
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(6423))),
-      home: Builder(builder: (BuildContext context) {
-        return Scaffold(
-          appBar: AppBar(
-              backgroundColor: Theme.of(context).colorScheme.primary,
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(6463))
+      ),
+      home: Scaffold(appBar: AppBar(
+        title: Text('hello world' ,style: Theme.of(context).textTheme.titleSmall,
+),
+             backgroundColor: Theme.of(context).colorScheme.primary,
               foregroundColor: Theme.of(context).colorScheme.primary,
-              title: Row(
-                children: [
-                  Text(
-                    'Hello world',
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                ],
-              )),
-        );
-      }),
+      ),),
     );
   }
 }
-
-
 
 
 form program
